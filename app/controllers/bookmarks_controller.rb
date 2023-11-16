@@ -1,5 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :set_bookmark, only: %i[ show edit update destroy ]
+  before_action :set_list, only: [:new, :create]
 
   # GET /bookmarks or /bookmarks.json
   def index
@@ -22,10 +23,11 @@ class BookmarksController < ApplicationController
   # POST /bookmarks or /bookmarks.json
   def create
     @bookmark = Bookmark.new(bookmark_params)
+    @bookmark.list = @list
 
     respond_to do |format|
       if @bookmark.save
-        format.html { redirect_to bookmark_url(@bookmark), notice: "Bookmark was successfully created." }
+        format.html { redirect_to list_url(@bookmark.list_id), notice: "Bookmark was successfully created." }
         format.json { render :show, status: :created, location: @bookmark }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -58,6 +60,10 @@ class BookmarksController < ApplicationController
   end
 
   private
+    def set_list
+      @list = List.find(params[:list_id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_bookmark
       @bookmark = Bookmark.find(params[:id])
