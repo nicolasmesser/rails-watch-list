@@ -8,6 +8,9 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form"
 gem "sassc-rails"
 
+# The Cloudinary Ruby on Rails SDK allows you to quickly and easily integrate your application with Cloudinary [https://github.com/cloudinary/cloudinary_gem]
+gem "cloudinary"
+
 # Shim to load environment variables from .env into ENV in development [https://github.com/bkeepers/dotenv]
 gem "dotenv-rails"
 
