@@ -2,12 +2,13 @@
 
 <h1>Lists</h1>
 
-<div id="lists">
+<div id="lists" class="row">
   <% @lists.each do |list| %>
-    <%= render list %>
-    <p>
+    <div class="card-category col-4 m-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <%= render list %>
+      <br>
       <%= link_to "Show this list", list %>
-    </p>
+    </div>
   <% end %>
 </div>
 

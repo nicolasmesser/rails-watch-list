@@ -1,14 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
-<div id="<%= dom_id @list %>">
-  <%= render @list %>
+<div id="<%= dom_id @list %>" class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1><%= render @list %></h1>
+    <br>
+    <%= button_to "Destroy this list", @list, method: :delete, class: "btn btn-flat"%>
+  </div>
+</div>
+
+<div class="container py-3">
   <%= render partial: "list_details" %>
 </div>
 
-<div>
+<div class="container">
+  <%= link_to "Back to lists", lists_path %> |
   <%= link_to "Edit this list", edit_list_path(@list) %> |
-  <%= link_to "Back to lists", lists_path %>
   <%= link_to "Create a bookmark", new_list_bookmark_path(@list) %>
-
-  <%= button_to "Destroy this list", @list, method: :delete %>
 </div>
