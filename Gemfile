@@ -8,6 +8,9 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form"
 gem "sassc-rails"
 
+# Shim to load environment variables from .env into ENV in development [https://github.com/bkeepers/dotenv]
+gem "dotenv-rails"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.2"
 
